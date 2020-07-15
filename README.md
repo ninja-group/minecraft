@@ -1,5 +1,5 @@
-# Monadencraft
-Docker setup + config for the good old monadencraft server.
+# Ninja Group Minecraft Configuration
+Docker setup + config for ninjas who craft in groups.
 
 ## Configuration
 * Server: 1.16.1 ([Paper](https://papermc.io/))
@@ -7,6 +7,7 @@ Docker setup + config for the good old monadencraft server.
 * Seed: TBA
 * Gamemode: survival
 * Difficulty: hard
+* PvP: off
 * Whitelist: on
 
 ## Mods
@@ -16,7 +17,18 @@ Docker setup + config for the good old monadencraft server.
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
 
 ## Datapacks
-* See [`datapacks`](datapacks)
+* See [`datapacks`](datapacks) for all enabled datapacks.
+  Some useful ones:
+    - **graves**: a gravestone is spawned when you die,
+      to keep your inventory safe until you come back for it.
+    - **multiplayer sleep**: anyone can trigger a night->day transition
+      (please be considerate of other players who may be engaged in
+       night-time activities).
+    - **custom nether portals**: create nether portals in any shape you like.
+    - **more bricks crafting**: bricks are no longer a rare earth metal
+      (craft 4 brick blocks from 4 brick items instead of one).
+* See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
+  more information on each datapack.
 
 ## Paper performance tweaks
 Minor ways in which the server differs from vanilla.
