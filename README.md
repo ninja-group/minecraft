@@ -7,7 +7,7 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 ## Configuration
 * **Server**: 1.16.1 ([Paper](https://papermc.io/))
 * **Address**: `mc.ekblad.cc:25565`
-* **Seed**: TBA
+* **Seed**: -4406778544368968670
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
