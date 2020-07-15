@@ -1,14 +1,17 @@
 # Ninja Group Minecraft Configuration
 Docker setup + config for ninjas who craft in groups.
 
+Also useful as a starting point for deploying your own server.
+Plays nice with [thicc](https://github.com/valderman/thicc).
+
 ## Configuration
-* Server: 1.16.1 ([Paper](https://papermc.io/))
-* Address: `mc.ekblad.cc:25565`
-* Seed: TBA
-* Gamemode: survival
-* Difficulty: hard
-* PvP: off
-* Whitelist: on
+* **Server**: 1.16.1 ([Paper](https://papermc.io/))
+* **Address**: `mc.ekblad.cc:25565`
+* **Seed**: TBA
+* **Gamemode**: survival
+* **Difficulty**: hard
+* **PvP**: off
+* **Whitelist**: on
 
 ## Mods
 * [mcMMO](https://mcmmo.org/)
@@ -21,12 +24,12 @@ Docker setup + config for ninjas who craft in groups.
   Some useful ones:
     - **graves**: a gravestone is spawned when you die,
       to keep your inventory safe until you come back for it.
-    - **multiplayer sleep**: anyone can trigger a night->day transition
+    - **multiplayer sleep**: anyone can trigger a night → day transition
       (please be considerate of other players who may be engaged in
        night-time activities).
     - **custom nether portals**: create nether portals in any shape you like.
     - **more bricks crafting**: bricks are no longer a rare earth metal
-      (craft 4 brick blocks from 4 brick items instead of one).
+      (craft four brick blocks from every four bricks instead of one).
 * See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
   more information on each datapack.
 
