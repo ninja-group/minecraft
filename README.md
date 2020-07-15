@@ -16,7 +16,7 @@ Docker setup + config for the good old monadencraft server.
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
 
 ## Datapacks
-* See [`/datapacks`](tree/master/datapacks)
+* See [`datapacks`](datapacks)
 
 ## Paper performance tweaks
 Minor ways in which the server differs from vanilla.
