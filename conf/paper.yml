@@ -165,6 +165,7 @@ world-settings:
       enabled: true
       items:
         COBBLESTONE: 300
+        NETHERRACK: 300
     hopper:
       cooldown-when-full: true
       disable-move-event: false

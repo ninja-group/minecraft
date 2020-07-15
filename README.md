@@ -47,5 +47,5 @@ If something doesn't work as expected, one of these is probably to blame.
       CPU load
 * `hopper.cooldown-when-full: true` (default true)
     - reduce CPU load by not constantly trying to pull items into a full hopper
-* Cobblestone despawns in 15 seconds.
+* Cobblestone and netherrack despawn in 15 seconds.
     - reduce CPU load, memory usage, and inventory clutter when mining
