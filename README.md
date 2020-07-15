@@ -3,6 +3,7 @@ Docker setup + config for the good old monadencraft server.
 
 ## Configuration
 * Server: 1.16.1 ([Paper](https://papermc.io/))
+* Address: `mc.ekblad.cc:25565`
 * Seed: TBA
 * Gamemode: survival
 * Difficulty: hard
