@@ -11,7 +11,6 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
-* **Whitelist**: on
 
 ## Mods
 * [mcMMO](https://mcmmo.org/)
@@ -20,18 +19,20 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
 
 ## Datapacks
-* See [`datapacks`](datapacks) for all enabled datapacks.
-  Some useful ones:
-    - **graves**: a gravestone is spawned when you die,
-      to keep your inventory safe until you come back for it.
-    - **multiplayer sleep**: anyone can trigger a night → day transition
-      (please be considerate of other players who may be engaged in
-       night-time activities).
-    - **custom nether portals**: create nether portals in any shape you like.
-    - **more bricks crafting**: bricks are no longer a rare earth metal
-      (craft four brick blocks from every four bricks instead of one).
-* See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
-  more information on each datapack.
+See [`datapacks`](datapacks) for all enabled datapacks.
+
+Some particularly useful ones:
+* **graves**: a gravestone is spawned when you die,
+  to keep your inventory safe until you come back for it.
+* **multiplayer sleep**: anyone can trigger a night → day transition
+  (please be considerate of other players who may be engaged in
+    night-time activities).
+* **custom nether portals**: create nether portals in any shape you like.
+* **more bricks crafting**: bricks are no longer a rare earth metal
+  (craft four brick blocks from every four bricks instead of one).
+
+See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
+more information about each datapack.
 
 ## Paper performance tweaks
 Minor ways in which the server differs from vanilla.
@@ -64,3 +65,27 @@ If something doesn't work as expected, one of these is probably to blame.
     - reduce CPU load by not constantly trying to pull items into a full hopper
 * Cobblestone and netherrack despawn in 15 seconds.
     - reduce CPU load, memory usage, and inventory clutter when mining
+
+## How to roll your own
+Build or pull the docker image, `docker-compose up`, done.
+Though you may want to change the config in [`docker-compose.yml`](docker-compose.yml) first.
+
+### Available options
+* Environment variables
+  * `OPS`: space-separated list of users with op privileges.
+    
+    The effective list of ops is the union of this list and any users you have op'd
+    from within Minecraft.
+    You should probably have at least one name on this list, or managing
+    your server is going to be a bit hard.
+  * `ALLOW`: space-separated list of users who are allowed to connect
+    to the server.
+
+    The effective list of allowed users is the union of this list and any users
+    you have added within Minecraft using `/whitelist add`.
+  * `HEAP`: amount of heap space to allocate. Defaults to `2G` if unset.
+* Volumes
+  * `/data`: your Minecraft world is stored on this volume.
+    You may want to back it up every now and then.
+* Exposed ports
+  * `25565`: the default Minecraft port.
