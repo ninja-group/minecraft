@@ -73,7 +73,7 @@ Though you may want to change the config in [`docker-compose.yml`](docker-compos
 ### Available options
 * Environment variables
   * `OPS`: space-separated list of users with op privileges.
-    
+
     The effective list of ops is the union of this list and any users you have op'd
     from within Minecraft.
     You should probably have at least one name on this list, or managing
@@ -81,11 +81,16 @@ Though you may want to change the config in [`docker-compose.yml`](docker-compos
   * `ALLOW`: space-separated list of users who are allowed to connect
     to the server.
 
-    The effective list of allowed users is the union of this list and any users
-    you have added within Minecraft using `/whitelist add`.
+    The effective list of allowed users is the union of this list, the `OPS`
+    list (no need do add ops to both lists) and any users you have added
+    from within Minecraft using `/whitelist add`.
   * `HEAP`: amount of heap space to allocate. Defaults to `2G` if unset.
 * Volumes
   * `/data`: your Minecraft world is stored on this volume.
     You may want to back it up every now and then.
 * Exposed ports
   * `25565`: the default Minecraft port.
+* Build-time arguments
+  * `VERSION`: Minecraft version to build image for. Defaults to 1.16.1.
+
+    The latest Paper build for the given version will be used for the image.
