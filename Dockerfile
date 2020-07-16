@@ -48,9 +48,7 @@ WORKDIR /
 COPY datapacks datapacks
 
 # Install scripts
-COPY startup.sh .
-COPY run-server.sh .
-COPY users-to-json.sh .
+COPY scripts .
 
 # Set up Minecraft environment
 WORKDIR /minecraft
