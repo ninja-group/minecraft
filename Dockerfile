@@ -19,10 +19,9 @@ FROM openjdk:11-jre-slim
 RUN apt-get update && apt-get -y install curl jq && apt-get clean
 
 ARG VERSION
-ARG SILKSPAWNERS_URL=https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar
-ARG ESSENTIALSX_URL=https://github.com/EssentialsX/Essentials/releases/download/2.18.0/EssentialsX-2.18.0.0.jar
-ARG BLOCKLOCKER_URL=https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar
-ARG PAPER_API=https://papermc.io/api/v1/paper
+ARG SILKSPAWNERS=https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar
+ARG ESSENTIALSX=https://github.com/EssentialsX/Essentials/releases/download/2.18.0/EssentialsX-2.18.0.0.jar
+ARG BLOCKLOCKER=https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar
 
 # Runtime config
 ENV HEAP=2G
@@ -33,24 +32,37 @@ VOLUME [ "/data" ]
 
 # Download latest Paper release
 WORKDIR /
-RUN export BUILD=`curl -Ls ${PAPER_API}/${VERSION} | jq -j '.builds.latest'` && \
+RUN export PAPER_API=https://papermc.io/api/v1/paper && \
+    export BUILD=`curl -Ls ${PAPER_API}/${VERSION} | jq -j '.builds.latest'` && \
     curl -Lo paper.jar ${PAPER_API}/${VERSION}/${BUILD}/download
 
-# Download plugins with binary releases
+# Install plugins
 WORKDIR /plugins
-RUN curl -Lo SilkSpawners.jar ${SILKSPAWNERS_URL} && \
-    curl -Lo EssentialsX.jar ${ESSENTIALSX_URL} && \
-    curl -Lo BlockLocker.jar ${BLOCKLOCKER_URL}
+RUN curl -Lo SilkSpawners.jar ${SILKSPAWNERS} && \
+    curl -Lo EssentialsX.jar ${ESSENTIALSX} && \
+    curl -Lo BlockLocker.jar ${BLOCKLOCKER}
+COPY --from=builder /build/mcMMO.jar .
 
-# Copy files
+# Install datapacks
 WORKDIR /
-COPY --from=builder /build/mcMMO.jar plugins/mcMMO.jar
 COPY datapacks datapacks
-COPY conf conf
+
+# Install scripts
 COPY startup.sh .
 COPY run-server.sh .
 COPY users-to-json.sh .
 
-RUN useradd -rd /data minecraft
-WORKDIR /data
+# Set up Minecraft environment
+WORKDIR /minecraft
+COPY conf .
+RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.json banned-players.json" && \
+    useradd -rd `realpath .` minecraft && \
+    chown minecraft:minecraft . /datapacks && \
+    echo "eula=true" > eula.txt && \
+    mkdir plugins && chown minecraft:minecraft plugins && \
+    find /plugins -type f -exec ln -s \{\} plugins/ \; && \
+    ln -s /data/logs && \
+    ln -s /data/cache && \
+    for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done
+
 CMD /startup.sh

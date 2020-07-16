@@ -12,4 +12,7 @@ mv allow.json.merged whitelist.json
 rm allow.json.env
 
 exec java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M \
-          -Xms$HEAP -Xmx$HEAP -jar /paper.jar
+          -Xms$HEAP -Xmx$HEAP -jar /paper.jar \
+          --nojline \
+          --universe ${UNIVERSE} \
+          --plugins ${PLUGINS}

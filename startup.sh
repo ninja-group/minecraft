@@ -1,11 +1,21 @@
 #!/bin/bash
-mkdir -p plugins world/datapacks
-chown minecraft:minecraft . plugins world world/datapacks
-for plugin in `find /plugins -type f`; do ln -sf $plugin plugins/ ; done
-for pack in `find /datapacks -type f`; do ln -sf $pack world/datapacks/ ; done
-ln -sf /conf/server.properties
-ln -sf /conf/paper.yml
-echo eula=true > eula.txt
+export UNIVERSE="/data/universe"
+export PLUGINS="/plugins"
+
+DATAPACKS="${UNIVERSE}/world/datapacks"
+DATADIRS="${UNIVERSE}/world /data/logs /data/cache /data/plugins /data/permissions"
+PLUGIN_NAMES="bStats $(find ${PLUGINS} -name '*.jar' -exec basename \{\} .jar \;)"
+
+for p in ${PLUGIN_NAMES} ; do
+  dir="/data/plugins/${p}"
+  mkdir -p "${dir}"
+  ln -sf "${dir}" "/plugins/${p}"
+done
+
+mkdir -p ${DATADIRS}
+chown -R minecraft:minecraft /data
+
+ln -sf /datapacks ${DATAPACKS}
 
 setpriv --reuid=minecraft \
         --regid=minecraft \
