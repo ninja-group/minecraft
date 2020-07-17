@@ -53,7 +53,8 @@ WORKDIR /minecraft
 COPY conf .
 RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.json banned-players.json" && \
     useradd -rd `realpath .` minecraft && \
-    chown minecraft:minecraft . /datapacks && \
+    chown -R minecraft:minecraft . && \
+    chown minecraft:minecraft /datapacks && \
     echo "eula=true" > eula.txt && \
     mkdir plugins && chown minecraft:minecraft plugins && \
     find /plugins -type f -exec ln -s \{\} plugins/ \; && \
