@@ -9,7 +9,8 @@ COPY source-plugins.json .
 COPY build-scripts .
 RUN jq -c '.[]' source-plugins.json | while read json ; do \
         ./build-plugin.sh "$json" ; \
-    done
+    done ; \
+    rm *.sh
 
 # Set up run-time image
 FROM openjdk:11-jre-slim
@@ -37,6 +38,7 @@ RUN export PAPER_API=https://papermc.io/api/v1/paper && \
 WORKDIR /plugins
 COPY --from=builder /build .
 COPY plugins.json .
+COPY source-plugins.json .
 RUN jq -c '.[]' plugins.json | while read json ; do \
         export name="$(echo $json | jq -j '.name')" ; \
         export url="$(echo $json | jq -j '.url')" ; \
@@ -60,8 +62,6 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     chown -R minecraft:minecraft . && \
     chown minecraft:minecraft /datapacks && \
     echo "eula=true" > eula.txt && \
-    mkdir plugins && chown minecraft:minecraft plugins && \
-    find /plugins -type f -exec ln -s \{\} plugins/ \; && \
     ln -s /data/logs && \
     ln -s /data/cache && \
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
