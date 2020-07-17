@@ -70,6 +70,10 @@ If something doesn't work as expected, one of these is probably to blame.
 Build or pull the docker image, `docker-compose up`, done.
 Though you may want to change the config in [`docker-compose.yml`](docker-compose.yml) first.
 
+If you want to add or remove any plugins, edit [`plugins.json`](plugins.json)
+before building. Make sure the `name` field matches the actual name for each
+plugin (case sensitive).
+
 ### Available options
 * Environment variables
   * `OPS`: space-separated list of users with op privileges.

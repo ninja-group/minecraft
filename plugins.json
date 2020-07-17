@@ -1,0 +1,14 @@
+[
+  {
+    "name": "SilkSpawners",
+    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar"
+  },
+  {
+    "name": "EssentialsX",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.18.0/EssentialsX-2.18.0.0.jar"
+  },
+  {
+    "name": "BlockLocker",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar"
+  }  
+]

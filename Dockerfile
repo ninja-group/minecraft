@@ -17,11 +17,7 @@ RUN git clone ${MCMMO_REPO} && \
 # Set up run-time image
 FROM openjdk:11-jre-slim
 RUN apt-get update && apt-get -y install curl jq && apt-get clean
-
 ARG VERSION
-ARG SILKSPAWNERS=https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar
-ARG ESSENTIALSX=https://github.com/EssentialsX/Essentials/releases/download/2.18.0/EssentialsX-2.18.0.0.jar
-ARG BLOCKLOCKER=https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar
 
 # Runtime config
 ENV HEAP=2G
@@ -38,10 +34,13 @@ RUN export PAPER_API=https://papermc.io/api/v1/paper && \
 
 # Install plugins
 WORKDIR /plugins
-RUN curl -Lo SilkSpawners.jar ${SILKSPAWNERS} && \
-    curl -Lo EssentialsX.jar ${ESSENTIALSX} && \
-    curl -Lo BlockLocker.jar ${BLOCKLOCKER}
 COPY --from=builder /build/mcMMO.jar .
+COPY plugins.json .
+RUN jq -c '.[]' plugins.json | while read json ; do \
+      export name="$(echo $json | jq -j '.name')" ; \
+      export url="$(echo $json | jq -j '.url')" ; \
+      curl -Lo "$name.jar" "$url" ; \
+    done
 
 # Install datapacks
 WORKDIR /
