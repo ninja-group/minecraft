@@ -2,7 +2,7 @@
   {
     "name": "SilkSpawners",
     "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar",
-    "extradirs": ["Updater"]
+    "extradirs": []
   },
   {
     "name": "EssentialsX",

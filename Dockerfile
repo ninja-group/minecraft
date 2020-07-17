@@ -45,7 +45,11 @@ RUN jq -c '.[]' plugins.json | while read json ; do \
         curl -fLo "$name.jar" "$url" || exit 1 ; \
         export realname=$(/build/plugin-name.sh "${name}.jar") ; \
         mv "${name}.jar" "${realname}.jar" || true ; \
-    done
+    done && \
+
+    # Disable automatic updates for plugins that support it
+    mkdir Updater && \
+    echo "disable: true" > Updater/config.yml
 
 # Install datapacks
 WORKDIR /
