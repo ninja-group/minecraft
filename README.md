@@ -68,11 +68,13 @@ If something doesn't work as expected, one of these is probably to blame.
 
 ## How to roll your own
 Build or pull the docker image, `docker-compose up`, done.
-Though you may want to change the config in [`docker-compose.yml`](docker-compose.yml) first.
+Though you may want to change the config in
+[`docker-compose.yml`](docker-compose.yml) first.
 
 If you want to add or remove any plugins, edit [`plugins.json`](plugins.json)
-before building. Make sure the `name` field matches the actual name for each
-plugin (case sensitive).
+or [`source-plugins.json`](source-plugins.json) before building.
+The builder image comes with Maven and Gradle installed. If a source plugin
+needs any other build tools, you'll need to add those to the dockerfile.
 
 ### Available options
 * Environment variables

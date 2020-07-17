@@ -1,18 +1,17 @@
 ARG VERSION=1.16.1
 FROM openjdk:11 AS builder
-RUN apt-get update && apt-get -y install git maven && apt-get clean
+RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 
 ARG MCMMO_REPO=https://github.com/mcMMO-Dev/mcMMO.git
 ARG MCMMO_TAG=master
 
 # Build mcMMO
 WORKDIR /build
-RUN git clone ${MCMMO_REPO} && \
-    cd mcMMO && \
-    git checkout ${MCMMO_TAG} && \
-    mvn package && \
-    mv target/mcMMO.jar /build/mcMMO.jar && \
-    cd .. && rm -rf mcMMO
+COPY source-plugins.json .
+COPY build-scripts .
+RUN jq -c '.[]' source-plugins.json | while read json ; do \
+        ./build-plugin.sh "$json" ; \
+    done
 
 # Set up run-time image
 FROM openjdk:11-jre-slim
@@ -34,7 +33,7 @@ RUN export PAPER_API=https://papermc.io/api/v1/paper && \
 
 # Install plugins
 WORKDIR /plugins
-COPY --from=builder /build/mcMMO.jar .
+COPY --from=builder /build/*.jar .
 COPY plugins.json .
 RUN jq -c '.[]' plugins.json | while read json ; do \
       export name="$(echo $json | jq -j '.name')" ; \

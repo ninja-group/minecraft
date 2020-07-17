@@ -1,0 +1,9 @@
+[
+  {
+    "name": "mcMMO",
+    "repo": "https://github.com/mcMMO-Dev/mcMMO.git",
+    "tag": "master",
+    "build": "mvn package",
+    "jarpath": "target/mcMMO.jar"
+  }
+]
