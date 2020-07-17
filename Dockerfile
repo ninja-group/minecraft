@@ -15,7 +15,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
 
 # Set up run-time image
 FROM openjdk:11-jre-slim
-RUN apt-get update && apt-get -y install curl jq && apt-get clean
+RUN apt-get update && apt-get -y install curl jq unzip && apt-get clean
 ARG VERSION
 
 # Runtime config
@@ -28,8 +28,8 @@ VOLUME [ "/data" ]
 # Download latest Paper release
 WORKDIR /
 RUN export PAPER_API=https://papermc.io/api/v1/paper && \
-    export BUILD=`curl -Ls ${PAPER_API}/${VERSION} | jq -j '.builds.latest'` && \
-    curl -Lo paper.jar ${PAPER_API}/${VERSION}/${BUILD}/download
+    export BUILD=`curl -fLs ${PAPER_API}/${VERSION} | jq -j '.builds.latest'` && \
+    curl -fLo paper.jar ${PAPER_API}/${VERSION}/${BUILD}/download
 
 # Install plugins
 WORKDIR /plugins
@@ -38,7 +38,7 @@ COPY plugins.json .
 RUN jq -c '.[]' plugins.json | while read json ; do \
       export name="$(echo $json | jq -j '.name')" ; \
       export url="$(echo $json | jq -j '.url')" ; \
-      curl -Lo "$name.jar" "$url" ; \
+      curl -fLo "$name.jar" "$url" || exit 1 ; \
     done
 
 # Install datapacks

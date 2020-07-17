@@ -73,6 +73,7 @@ Though you may want to change the config in
 
 If you want to add or remove any plugins, edit [`plugins.json`](plugins.json)
 or [`source-plugins.json`](source-plugins.json) before building.
+
 The builder image comes with Maven and Gradle installed. If a source plugin
 needs any other build tools, you'll need to add those to the dockerfile.
 
