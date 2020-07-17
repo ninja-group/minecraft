@@ -1,11 +1,9 @@
 ARG VERSION=1.16.1
 FROM openjdk:11 AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
+ARG VERSION
 
-ARG MCMMO_REPO=https://github.com/mcMMO-Dev/mcMMO.git
-ARG MCMMO_TAG=master
-
-# Build mcMMO
+# Build source plugins
 WORKDIR /build
 COPY source-plugins.json .
 COPY build-scripts .
@@ -25,6 +23,10 @@ ENV ALLOW=
 EXPOSE 25565
 VOLUME [ "/data" ]
 
+# Copy build scripts
+WORKDIR /build
+COPY build-scripts .
+
 # Download latest Paper release
 WORKDIR /
 RUN export PAPER_API=https://papermc.io/api/v1/paper && \
@@ -33,12 +35,14 @@ RUN export PAPER_API=https://papermc.io/api/v1/paper && \
 
 # Install plugins
 WORKDIR /plugins
-COPY --from=builder /build/*.jar .
+COPY --from=builder /build .
 COPY plugins.json .
 RUN jq -c '.[]' plugins.json | while read json ; do \
-      export name="$(echo $json | jq -j '.name')" ; \
-      export url="$(echo $json | jq -j '.url')" ; \
-      curl -fLo "$name.jar" "$url" || exit 1 ; \
+        export name="$(echo $json | jq -j '.name')" ; \
+        export url="$(echo $json | jq -j '.url')" ; \
+        curl -fLo "$name.jar" "$url" || exit 1 ; \
+        export realname=$(/build/plugin-name.sh "${name}.jar") ; \
+        mv "${name}.jar" "${realname}.jar" || true ; \
     done
 
 # Install datapacks
@@ -48,7 +52,7 @@ COPY datapacks datapacks
 # Install scripts
 COPY scripts .
 
-# Set up Minecraft environment
+# Set up Minecraft working directory
 WORKDIR /minecraft
 COPY conf .
 RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.json banned-players.json" && \
@@ -60,6 +64,7 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     find /plugins -type f -exec ln -s \{\} plugins/ \; && \
     ln -s /data/logs && \
     ln -s /data/cache && \
-    for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done
+    for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
+    rm -rf /build
 
 CMD /startup.sh

@@ -13,7 +13,7 @@ if [ "" != "$tag" ] ; then
 fi
 
 $build || exit 1
-mv "$jarpath" "../$name.jar"
+mv "$jarpath" ../$(/build/plugin-name.sh "$jarpath").jar
 
 cd ..
 rm -rf "$name"
