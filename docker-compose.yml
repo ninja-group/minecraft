@@ -11,5 +11,5 @@ services:
       - /data/minecraft:/data
     environment:
       - OPS=valderman
-      - ALLOW=nyson th4m MamegomaBuilds Adlitam Zorando BunnyFiscuit Vaio Niadra Waester
+      - ALLOW=nyson th4m MamegomaBuilds Adlitam Zorando BunnyFiscuit Vaio Niadra Waester daxtur
       - HEAP=2G

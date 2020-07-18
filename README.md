@@ -81,16 +81,27 @@ needs any other build tools, you'll need to add those to the dockerfile.
 * Environment variables
   * `OPS`: space-separated list of users with op privileges.
 
-    The effective list of ops is the union of this list and any users you have op'd
-    from within Minecraft.
+    The effective list of ops is the union of this list and any users you have
+    previously op'd, either by adding them to this list or by using `/op`
+    in-game.
+
+    This means that you can only **add** ops by changing this variable; to de-op
+    someone, you need to remove them from this list *and* de-op them in-game.
+
     You should probably have at least one name on this list, or managing
     your server is going to be a bit hard.
   * `ALLOW`: space-separated list of users who are allowed to connect
     to the server.
 
     The effective list of allowed users is the union of this list, the `OPS`
-    list (no need do add ops to both lists) and any users you have added
-    from within Minecraft using `/whitelist add`.
+    list (no need do add ops to both lists) and any users you have previously
+    allowlisted, either by adding them to this list of from within Minecraft
+    using `/whitelist add`.
+
+    This means that you can only **add** users to the allow list by changing
+    this variable; to remove someone from the allow list, you need to
+    remove them from this list *and* remove them from the list in-game
+    using `/whitelist remove`.
   * `HEAP`: amount of heap space to allocate. Defaults to `2G` if unset.
 * Build-time config files
   * [`plugins.json`](plugins.json):
