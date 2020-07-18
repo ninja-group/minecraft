@@ -92,6 +92,18 @@ needs any other build tools, you'll need to add those to the dockerfile.
     list (no need do add ops to both lists) and any users you have added
     from within Minecraft using `/whitelist add`.
   * `HEAP`: amount of heap space to allocate. Defaults to `2G` if unset.
+* Build-time config files
+  * [`plugins.json`](plugins.json):
+    plugins to be downloaded on image build.
+  * [`source-plugins.json`](source-plugins.json):
+    plugins to be built from source on image build.
+  * [`datapacks`](datapacks):
+    datapacks to include in image.
+  * [`conf`](conf):
+    configuration files for the Paper Minecraft server; reapplied on each
+    container restart.
+  * [`plugin-conf`](plugin-conf):
+    per-plugin configuration; reapplied on each container restart.
 * Volumes
   * `/data`: your Minecraft world is stored on this volume.
     You may want to back it up every now and then.

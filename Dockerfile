@@ -46,16 +46,14 @@ RUN jq -c '.[]' plugins.json | while read json ; do \
         export realname=$(/build/plugin-name.sh "${name}.jar") ; \
         mv "${name}.jar" "${realname}.jar" || true ; \
     done && \
-
     # Disable automatic updates for plugins that support it
     mkdir Updater && \
     echo "disable: true" > Updater/config.yml
 
-# Install datapacks
+# Install datapacks, scripts and plugin configs
 WORKDIR /
 COPY datapacks datapacks
-
-# Install scripts
+COPY plugin-conf plugin-conf
 COPY scripts .
 
 # Set up Minecraft working directory

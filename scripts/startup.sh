@@ -15,16 +15,26 @@ PLUGIN_EXTRADIRS="$(echo ${PLUGIN_JSON} | jq -r 'map(.extradirs)|flatten|.[]|sel
 PLUGIN_NAMES="bStats $(find ${PLUGINS} -name '*.jar' -exec basename \{\} .jar \;)"
 PLUGIN_CONFIGDIRS="${PLUGIN_NAMES} ${PLUGIN_EXTRADIRS}"
 
+# Setup persitent config and data directories
 for p in ${PLUGIN_CONFIGDIRS} ; do
   dir="/data/plugins/${p}"
   mkdir -p "${dir}"
   ln -sf "${dir}" "/plugins/${p}"
 done
-
 mkdir -p ${DATADIRS}
 chown -R minecraft:minecraft /data
-
 ln -sf /datapacks ${DATAPACKS}
+
+# Apply any baked-in configurations
+for conf in `ls /plugin-conf` ; do
+  source="/plugin-conf/$(basename ${conf})"
+  target="/data/plugins/$(basename ${conf})"
+  if [ -d "${target}" ] ; then
+    echo "Applying baked-in config for ${conf}"
+    cp -rf "${source}"/* "${target}/"
+    chown -R minecraft:minecraft "${target}"
+  fi
+done
 
 setpriv --reuid=minecraft \
         --regid=minecraft \
