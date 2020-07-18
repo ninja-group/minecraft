@@ -54,7 +54,7 @@ RUN jq -c '.[]' plugins.json | while read json ; do \
 WORKDIR /
 COPY datapacks datapacks
 COPY plugin-conf plugin-conf
-COPY scripts .
+COPY scripts scripts
 
 # Set up Minecraft working directory
 WORKDIR /minecraft
@@ -69,4 +69,4 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
     rm -rf /build
 
-CMD /startup.sh
+CMD /scripts/startup.sh

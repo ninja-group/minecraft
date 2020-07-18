@@ -40,4 +40,4 @@ setpriv --reuid=minecraft \
         --regid=minecraft \
         --init-groups \
         --inh-caps=-all \
-        /run-server.sh
+        /scripts/run-server.sh

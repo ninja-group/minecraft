@@ -23,7 +23,7 @@ settings:
   log-villager-deaths: true
   timeout-time: 60
   restart-on-crash: true
-  restart-script: /run-server.sh
+  restart-script: /scripts/run-server.sh
   netty-threads: 4
   attribute:
     maxHealth:
