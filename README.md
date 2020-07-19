@@ -120,6 +120,7 @@ needs any other build tools, you'll need to add those to the dockerfile.
     You may want to back it up every now and then.
 * Exposed ports
   * `25565`: the default Minecraft port.
+  * `8123`: HTTP port for dynmap.
 * Build-time arguments
   * `VERSION`: Minecraft version to build image for. Defaults to 1.16.1.
 

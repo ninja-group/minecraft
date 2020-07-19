@@ -12,8 +12,10 @@ if [ "" != "$tag" ] ; then
   git checkout "$tag"
 fi
 
-$build || exit 1
-mv "$jarpath" ../$(/build/plugin-name.sh "$jarpath").jar
+/bin/bash -c "$build" || exit 1
+path=`/bin/bash -c "ls $jarpath"`
+name=`/build/plugin-name.sh $path`
+mv $path ../$name.jar
 
 cd ..
 rm -rf "$name"

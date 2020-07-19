@@ -5,5 +5,12 @@
     "tag": "master",
     "build": "mvn package",
     "jarpath": "target/mcMMO.jar"
+  },
+  {
+    "name": "dynmap",
+    "repo": "https://github.com/webbukkit/dynmap.git",
+    "tag": "v3.0",
+    "build": "rm -rf forge* ; ./gradlew install",
+    "jarpath": "target/Dynmap-*-spigot.jar"
   }
 ]
