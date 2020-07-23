@@ -19,7 +19,7 @@ PLUGIN_CONFIGDIRS="${PLUGIN_NAMES} ${PLUGIN_EXTRADIRS}"
 for p in ${PLUGIN_CONFIGDIRS} ; do
   dir="/data/plugins/${p}"
   mkdir -p "${dir}"
-  ln -sf "${dir}" "/plugins/${p}"
+  [ -L "/plugins/${p}" ] || ln -sf "${dir}" "/plugins/${p}"
 done
 mkdir -p ${DATADIRS}
 chown -R minecraft:minecraft /data
