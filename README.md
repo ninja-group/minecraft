@@ -17,6 +17,7 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 * [EssentialsX](https://essentialsx.net/)
 * [SilkSpawners](https://dev.bukkit.org/projects/silkspawners)
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
+* [Lasso](https://www.spigotmc.org/resources/lasso.54815/)
 
 ## Datapacks
 See [`datapacks`](datapacks) for all enabled datapacks.
