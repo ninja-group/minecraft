@@ -13,5 +13,10 @@
     "name": "BlockLocker",
     "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar",
     "extradirs": []
-  }  
+  },
+  {
+    "name": "Lasso",
+    "jar": "Lasso-1.4-b2.jar",
+    "extradirs": []
+  }
 ]

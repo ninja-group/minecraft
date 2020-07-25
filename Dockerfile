@@ -39,12 +39,15 @@ WORKDIR /plugins
 COPY --from=builder /build .
 COPY plugins.json .
 COPY source-plugins.json .
+COPY plugin-jars .
 RUN jq -c '.[]' plugins.json | while read json ; do \
         export name="$(echo $json | jq -j '.name')" ; \
         export url="$(echo $json | jq -j '.url')" ; \
-        curl -fLo "$name.jar" "$url" || exit 1 ; \
+        export jar="$(echo $json | jq -j '.jar')" ; \
+        [ -f "$name.jar" ] || mv "$jar" "$name.jar" || true ; \
+        [ -f "$name.jar" ] || curl -fLo "$name.jar" "$url" || exit 1 ; \
         export realname=$(/build/plugin-name.sh "${name}.jar") ; \
-        mv "${name}.jar" "${realname}.jar" || true ; \
+        mv "$name.jar" "$realname.jar" || true ; \
     done && \
     # Disable automatic updates for plugins that support it
     mkdir Updater && \
