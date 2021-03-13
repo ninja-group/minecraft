@@ -1,17 +1,17 @@
 [
   {
     "name": "SilkSpawners",
-    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-6.3.1/SilkSpawners.jar",
+    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-7.0.0/SilkSpawners.jar",
     "extradirs": []
   },
   {
     "name": "EssentialsX",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.18.0/EssentialsX-2.18.0.0.jar",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.18.2/EssentialsX-2.18.2.0.jar",
     "extradirs": []
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.8.1/BlockLocker.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.9.2/blocklocker-1.9.2.jar",
     "extradirs": []
   },
   {

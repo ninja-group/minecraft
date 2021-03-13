@@ -1,4 +1,4 @@
-ARG VERSION=1.16.1
+ARG VERSION=1.16.5
 FROM openjdk:11 AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 ARG VERSION
