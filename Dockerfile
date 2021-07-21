@@ -1,5 +1,5 @@
-ARG VERSION=1.16.5
-FROM openjdk:11 AS builder
+ARG VERSION=1.17.1
+FROM openjdk:11-buster AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 ARG VERSION
 
@@ -13,7 +13,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
     rm *.sh
 
 # Set up run-time image
-FROM openjdk:11-jre-slim
+FROM openjdk:16-slim-buster
 RUN apt-get update && apt-get -y install curl jq unzip && apt-get clean
 ARG VERSION
 
