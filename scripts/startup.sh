@@ -36,8 +36,10 @@ for conf in `ls /plugin-conf` ; do
   fi
 done
 
+caps=$(seq -f "-cap_%.0f" -s "," 0 `cat /proc/sys/kernel/cap_last_cap`)
+
 setpriv --reuid=minecraft \
         --regid=minecraft \
         --init-groups \
-        --inh-caps=-all \
+        --inh-caps=$caps \
         /scripts/run-server.sh
