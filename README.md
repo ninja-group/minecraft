@@ -7,7 +7,7 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 ## Configuration
 * **Server**: 1.17.1 ([Paper](https://papermc.io/))
 * **Address**: `mc.ekblad.cc:25565`
-* **Seed**: 5836917346778640855
+* **Seed**: -1030000345
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
@@ -121,7 +121,7 @@ needs any other build tools, you'll need to add those to the dockerfile.
     You may want to back it up every now and then.
 * Exposed ports
   * `25565`: the default Minecraft port.
-* Build-time arguments
+* Buil§-time arguments
   * `VERSION`: Minecraft version to build image for. Defaults to 1.17.
 
     The latest Paper build for the given version will be used for the image.
