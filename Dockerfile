@@ -13,7 +13,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
     rm *.sh
 
 # Set up run-time image
-FROM openjdk:16-slim-buster
+FROM openjdk:17-slim-bullseye
 RUN apt-get update && apt-get -y install curl jq unzip && apt-get clean
 ARG VERSION
 
