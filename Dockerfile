@@ -68,7 +68,6 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     chown minecraft:minecraft /datapacks && \
     echo "eula=true" > eula.txt && \
     ln -s /data/logs && \
-    ln -s /data/cache && \
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
     rm -rf /build
 
