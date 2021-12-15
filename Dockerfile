@@ -30,9 +30,9 @@ COPY build-scripts .
 
 # Download latest Paper release
 WORKDIR /
-RUN export PAPER_API=https://papermc.io/api/v1/paper && \
-    export BUILD=`curl -fLs ${PAPER_API}/${VERSION} | jq -j '.builds.latest'` && \
-    curl -fLo paper.jar ${PAPER_API}/${VERSION}/${BUILD}/download
+RUN export PAPER_API=https://papermc.io/api/v2/projects/paper && \
+    export BUILD=`curl -fLs ${PAPER_API}/versions/${VERSION} | jq -j '.builds[-1]'` && \
+    curl -fLo paper.jar ${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/paper-${VERSION}-${BUILD}.jar
 
 # Install plugins
 WORKDIR /plugins
