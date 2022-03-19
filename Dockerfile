@@ -1,4 +1,4 @@
-ARG VERSION=1.18.1
+ARG VERSION=1.18.2
 FROM openjdk:17-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 ARG VERSION

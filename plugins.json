@@ -1,22 +1,22 @@
 [
   {
     "name": "SilkSpawners",
-    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-7.1.1/SilkSpawners.jar",
+    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-7.2.0/SilkSpawners.jar",
     "extradirs": []
   },
   {
     "name": "EssentialsX",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.18.2/EssentialsX-2.18.2.0.jar",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.4/EssentialsX-2.19.4.jar",
     "extradirs": []
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.10.1/BlockLocker.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.10.4/blocklocker-1.10.4.jar",
     "extradirs": []
   },
   {
     "name": "Lasso",
-    "jar": "Lasso-1.4.1.jar",
+    "jar": "Lasso-1.18.2-1.7.jar",
     "extradirs": []
   }
 ]

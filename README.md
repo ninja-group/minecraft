@@ -6,8 +6,8 @@ Plays nice with [thicc](https://github.com/valderman/thicc).
 
 ## Configuration
 * **Server**: 1.18.1 ([Paper](https://papermc.io/))
-* **Address**: `mc.ekblad.cc:25565`
-* **Seed**: -1356275733954519622
+* **Address**: `98.128.172.52:25565`
+* **Seed**: -4690309044812799378
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
