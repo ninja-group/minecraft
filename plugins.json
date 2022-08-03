@@ -1,7 +1,7 @@
 [
   {
     "name": "SilkSpawners",
-    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-7.2.0/SilkSpawners.jar",
+    "url": "https://github.com/timbru31/SilkSpawners/releases/download/silkspawners-7.3.0/SilkSpawners.jar",
     "extradirs": []
   },
   {
@@ -11,7 +11,7 @@
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.10.4/blocklocker-1.10.4.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.11/BlockLocker.jar",
     "extradirs": []
   },
   {
