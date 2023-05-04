@@ -17,6 +17,6 @@
   {
     "name": "Lasso",
     "jar": "Lasso-1.19.4-1.8.jar",
-    "extradirs": []
+    "extradirs": ["Lasso"]
   }
 ]
