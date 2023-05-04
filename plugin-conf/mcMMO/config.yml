@@ -1,6 +1,6 @@
 #
 #  mcMMO configuration
-#  Last updated on 2.1.134-SNAPSHOT-b${BUILD_NUMBER}
+#  Last updated on ${project.version}-b${BUILD_NUMBER}
 #
 #####
 
@@ -8,13 +8,47 @@
 #  Settings for mcMMO in general
 ###
 General:
+    # When players reach certain level milestones messages will be broadcast
+    Level_Up_Chat_Broadcasts:
+        # Whether level up broadcasts are enabled
+        Enabled: true
+        # Whether you want power level milestones to be broadcast
+        Broadcast_Powerlevels:
+            Enabled: true
+            # How often to broadcast, you can change this to 1 to always broadcast a level up event, a setting of 100 will limit it to every 100 levels (for example level 100, level 200, etc)
+            Milestone_Interval: 100
+            Broadcast_Targets:
+                # Send the message to the console as well
+                Send_To_Console: true
+                # Whether to only send chat messages to party members
+                Only_Party_Members: false
+                # Whether players who receive a level up broadcast have to be on the same world as the one who leveled up
+                Only_Same_World: false
+                # Distance restrictions
+                Distance_Restrictions:
+                    Restrict_Distance: false
+                    # When using Restrict_Distance the blow setting configures the range of the broadcast
+                    Restricted_Radius: 100
+        # How often to broadcast, you can change this to 1 to always broadcast a level up event, a setting of 100 will limit it to every 100 levels (for example level 100, level 200, etc)
+        Milestone_Interval: 100
+        Broadcast_Targets:
+            # Send the message to the console as well
+            Send_To_Console: true
+            # Whether to only send chat messages to party members
+            Only_Party_Members: false
+            # Whether players who recieve a level up broadcast have to be on the same world as the one who leveled up
+            Only_Same_World: false
+            # Distance restrictions
+            Distance_Restrictions:
+                Restrict_Distance: false
+                # When using Restrict_Distance the blow setting configures the range of the broadcast
+                Restricted_Radius: 100
         # Turning this on will scale mcMMO around 1-1000 with default scaling factor
-        # Everything in your config related to skill level requirements, skill level bonuses, etc will be multiplied by 10 when this mode is on
+        # Everything in your config related to skill level requirements, skill level bonuses, etc. will be multiplied by 10 when this mode is on
         # This change is purely cosmetic, it retains the old feel of mcMMO where you could level up thousands of times
     RetroMode:
         Enabled: true
     Locale: en_US
-    AprilFoolsEvent: true
     MOTD_Enabled: true
     EventBroadcasts: true
     EventInfoOnPlayerJoin: true
@@ -24,10 +58,7 @@ General:
     # Amount of time (in minutes) to wait between saves of player information
     Save_Interval: 10
     # Allow mcMMO to report on basic anonymous usage
-    Stats_Tracking: false
-    # Allow mcMMO to check if a new version is available
-    Update_Check: false
-    Prefer_Beta: false
+    Stats_Tracking: true
     Power_Level_Cap: 0
     # Should mcMMO truncate levels if you lower your max level cap for a skillname
     TruncateSkills: true
@@ -48,7 +79,7 @@ General:
 ###
 Scoreboard:
     # Set this to true to enable scoreboards
-    UseScoreboards: true
+    UseScoreboards: false
     # Display player's power levels below their names?
     Power_Level_Tags: false
 
@@ -113,9 +144,8 @@ Scoreboard:
             LevelUp_Time: 5
 
 Mob_Healthbar:
-    # Enabled: Whether or not the feature is enabled at all
+    # Enabled: Whether the feature is enabled at all
     # Display_Type: Per player Default display for mob health bars - HEARTS, BAR, or DISABLED
-    # Display_Time: Amount of time (in seconds) to display. To display permanently, set to -1
     Enabled: true
     Display_Type: HEARTS
     Display_Time: 3
@@ -168,6 +198,7 @@ MySQL:
         SSL: true
         Port: 3306
         Address: localhost
+        allowPublicKeyRetrieval: true
 
 #
 #  Settings for Hardcore mode
@@ -303,7 +334,7 @@ Abilities:
         Super_Breaker: 0
         Tree_Feller: 0
     Limits:
-        Tree_Feller_Threshold: 500
+        Tree_Feller_Threshold: 1000
     Tools:
         # Use more tool durability while using abilities. Set Durability_Loss to 0 to disable the extra durability damage.
         Durability_Loss: 1
@@ -357,6 +388,7 @@ Skills:
         Anvil_Placed_Sounds: true
         Anvil_Use_Sounds: true
         Anvil_Material: IRON_BLOCK
+        Use_Enchanted_Materials: false
         # Ask for a confirmation when a player tries to repair an enchanted item
         Confirm_Required: true
     Salvage:
@@ -416,11 +448,27 @@ Skills:
         Tree_Feller_Sounds: true
         Level_Cap: 0
 
+# Disable or Enable the Green Thumb auto replant feature for specific crops, use the name of the block not the crop itemstack
+Green_Thumb_Replanting_Crops:
+    Carrots: true
+    Wheat: true
+    Nether_Wart: true
+    Potatoes: true
+    Beetroots: true
+    Cocoa: true
 #
 #  Settings for Double Drops
 ###
 Bonus_Drops:
     Herbalism:
+        Pitcher_Plant: true
+        Torchflower: true
+        Pink_Petals: true
+        Glow_Berries: true
+        Cave_Vines: true
+        Cave_Vines_Plant: true
+        Moss_Block: true
+        Sweet_Berry_Bush: true
         Weeping_Vines: true
         Twisting_Vines: true
         Shroomlight: true
@@ -470,6 +518,28 @@ Bonus_Drops:
         Peony: true
         Lily_Of_The_Valley: true
     Mining:
+        Tuff: true
+        Deepslate_Redstone_Ore: true
+        Deepslate_Copper_Ore: true
+        Deepslate_Coal_Ore: true
+        Deepslate_Diamond_Ore: true
+        Deepslate_Emerald_Ore: true
+        Deepslate_Iron_Ore: true
+        Deepslate_Gold_Ore: true
+        Deepslate_Lapis_Ore: true
+        Lapis_Lazuli_Ore: true
+        Copper_Ore: true
+        Calcite: true
+        Smooth_Basalt: true
+        Block_Of_Amethyst: true
+        Budding_Amethyst: true
+        Small_Amethyst_Bud: true
+        Medium_Amethyst_Bud: true
+        Large_Amethyst_Bud: true
+        Amethyst_Cluster: true
+        Amethyst_Shard: true
+        Deepslate: true
+        Cobbled_Deepslate: true
         Gilded_Blackstone: true
         Crying_Obsidian: true
         Nether_Bricks: true
@@ -507,13 +577,16 @@ Bonus_Drops:
         Netherrack: true
         Obsidian: true
         Nether_Quartz_Ore: true
-        Nether_Quartz: true
+        Quartz: true
         Redstone_Ore: true
         Redstone: true
         Redstone_Dust: true
         Sandstone: true
         Stone: true
         Cobblestone: true
+        Raw_Copper: true
+        Raw_Iron: true
+        Raw_Gold: true
     Woodcutting:
         Crimson_Hyphae: true
         Warped_Hyphae: true
@@ -528,6 +601,8 @@ Bonus_Drops:
         Acacia_Log: true
         Birch_Wood: true
         Birch_Log: true
+        Cherry_Wood: true
+        Cherry_Log: true
         Dark_Oak_Wood: true
         Dark_Oak_Log: true
         Oak_Wood: true
@@ -536,6 +611,8 @@ Bonus_Drops:
         Jungle_Log: true
         Spruce_Wood: true
         Spruce_Log: true
+        Mangrove_Wood: true
+        Mangrove_Log: true
     Smelting:
         Iron_Ingot: true
         Gold_Ingot: true
@@ -546,7 +623,9 @@ Bonus_Drops:
         Nether_Quartz: true
         Quartz: true
         Redstone: true
-
+        Deepslate: true
+        Copper_Ingot: true
+        Netherite_Scrap: true
 #
 #  Settings for commands
 ###
@@ -563,7 +642,7 @@ Commands:
         # Prevents players from spamming /mctop or /mcrank
         Player_Cooldown: 1750
     mcmmo:
-        Donate_Message: false
+        Donate_Message: true
     inspect:
         Max_Distance: 30.0
     ptp:
@@ -575,13 +654,6 @@ Commands:
         # If true, require players to have a mcmmo.commands.ptp.world.[WorldName] permission
         # to teleport to, from, or within any given world.
         World_Based_Permissions: false
-    partychat:
-        Chat_Prefix_Format: '[[GREEN]]([[WHITE]]{0}[[GREEN]])'
-        Use_Display_Names: true
-        Chat_Prefix_Format_Ally: '[[GREEN]](A)[[RESET]]'
-    adminchat:
-        Chat_Prefix_Format: '[[AQUA]][[[WHITE]]{0}[[AQUA]]]'
-        Use_Display_Names: true
 
 #
 #  Settings for particles
@@ -611,4 +683,3 @@ Particles:
 Sounds:
     # This setting controls the master volume. 1.0 is Max,  0 would be off
     MasterVolume: 1.0
-    
