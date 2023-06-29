@@ -1,22 +1,22 @@
 [
   {
     "name": "SilkSpawners",
-    "url": "https://ci.dustplanet.de/job/SilkSpawners/280/artifact/modules/SilkSpawners/target/SilkSpawners.jar",
+    "url": "https://storage.googleapis.com/silkspawners/SilkSpawners_v2.jar",
     "extradirs": []
   },
   {
     "name": "EssentialsX",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsX-2.19.7.jar",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.20.0/EssentialsX-2.20.0.jar",
     "extradirs": []
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12/BlockLocker.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.1/blocklocker-1.12.1.jar",
     "extradirs": []
   },
   {
     "name": "Lasso",
-    "jar": "Lasso-1.19.4-1.8.jar",
+    "jar": "Lasso-1.20-1.9.jar",
     "extradirs": ["Lasso"]
   }
 ]

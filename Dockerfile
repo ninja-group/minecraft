@@ -1,4 +1,4 @@
-ARG VERSION=1.19.4
+ARG VERSION=1.20.1
 FROM docker.io/openjdk:17-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 ARG VERSION
