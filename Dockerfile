@@ -1,5 +1,5 @@
 ARG VERSION=1.19.4
-FROM openjdk:17-bullseye AS builder
+FROM docker.io/openjdk:17-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
 ARG VERSION
 
@@ -13,7 +13,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
     rm *.sh
 
 # Set up run-time image
-FROM openjdk:17-slim-bullseye
+FROM docker.io/openjdk:17-slim-bullseye
 RUN apt-get update && apt-get -y install curl jq unzip && apt-get clean
 ARG VERSION
 

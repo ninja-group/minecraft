@@ -4,5 +4,6 @@ jobs:
   build-and-push:
     runs-on: self-hosted
     steps:
-      - run: docker build -t sebas:5000/minecraft:latest .
-      - run: docker push sebas:5000/minecraft:latest
+      - uses: actions/checkout@v3
+      - run: /usr/bin/buildah bud --isolation=chroot --storage-driver=vfs -t "sebas:5000/minecraft:latest" .
+      - run: /usr/bin/buildah push "sebas:5000/minecraft:latest"
