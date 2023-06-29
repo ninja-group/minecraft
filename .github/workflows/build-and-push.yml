@@ -1,0 +1,8 @@
+name: build-and-push
+on: [push]
+jobs:
+  build-and-push:
+    runs-on: self-hosted
+    steps:
+      - run: docker build -t sebas:5000/minecraft:latest .
+      - run: docker push sebas:5000/minecraft:latest
