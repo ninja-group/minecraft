@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: /usr/bin/buildah bud --isolation=chroot --storage-driver=vfs -t "sebas:5000/minecraft:latest" .
-      - run: /usr/bin/buildah push "sebas:5000/minecraft:latest"
+      - run: /usr/bin/buildah push --tls-verify=false "sebas:5000/minecraft:latest"
