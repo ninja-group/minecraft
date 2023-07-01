@@ -2,12 +2,11 @@
 Docker setup + config for ninjas who craft in groups.
 
 Also useful as a starting point for deploying your own server.
-Plays nice with [thicc](https://github.com/valderman/thicc).
 
 ## Configuration
-* **Server**: 1.18.1 ([Paper](https://papermc.io/))
-* **Address**: `98.128.172.52:25565`
-* **Seed**: -4690309044812799378
+* **Server**: 1.20.1 ([Paper](https://papermc.io/))
+* **Address**: `ägd.lol:25565`
+* **Seed**: 4806005722116301008
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
@@ -96,7 +95,7 @@ needs any other build tools, you'll need to add those to the dockerfile.
 
     The effective list of allowed users is the union of this list, the `OPS`
     list (no need do add ops to both lists) and any users you have previously
-    allowlisted, either by adding them to this list of from within Minecraft
+    allowlisted, either by adding them to this list or from within Minecraft
     using `/whitelist add`.
 
     This means that you can only **add** users to the allow list by changing
@@ -121,7 +120,7 @@ needs any other build tools, you'll need to add those to the dockerfile.
     You may want to back it up every now and then.
 * Exposed ports
   * `25565`: the default Minecraft port.
-* Buil§-time arguments
-  * `VERSION`: Minecraft version to build image for. Defaults to 1.18.
+* Build-time arguments
+  * `VERSION`: Minecraft version to build image for. Defaults to 1.20.1.
 
     The latest Paper build for the given version will be used for the image.
