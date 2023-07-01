@@ -5,5 +5,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - run: /usr/bin/buildah bud --isolation=chroot --storage-driver=vfs -t "sebas:5000/minecraft:latest" .
-      - run: /usr/bin/buildah push --tls-verify=false "sebas:5000/minecraft:latest"
+      - run: |
+          TAG=$(git rev-parse --short ${{ github.sha }})
+          buildah bud --isolation=chroot --storage-driver=vfs -t sebas:5000/minecraft:$TAG .
+          buildah push --tls-verify=false sebas:5000/minecraft:$TAG
+          if [ "${{ github.ref_name }}" == "master" ] ; then
+            buildah tag sebas:5000/minecraft:$TAG sebas:5000/minecraft:latest
+            buildah push --tls-verify=false sebas:5000/minecraft:latest
+          fi
