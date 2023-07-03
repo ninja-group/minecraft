@@ -22,8 +22,10 @@ for p in ${PLUGIN_CONFIGDIRS} ; do
   [ -L "/plugins/${p}" ] || ln -sf "${dir}" "/plugins/${p}"
 done
 mkdir -p ${DATADIRS}
+mkdir -p ${DATAPACKS}
 chown -R minecraft:minecraft /data
-ln -sf /datapacks ${DATAPACKS}
+rm -rf ${DATAPACKS}/*
+cp -rf /datapacks/* ${DATAPACKS}/
 
 # Apply any baked-in configurations
 for conf in `ls /plugin-conf` ; do
