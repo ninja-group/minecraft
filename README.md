@@ -6,7 +6,7 @@ Also useful as a starting point for deploying your own server.
 ## Configuration
 * **Server**: 1.20.1 ([Paper](https://papermc.io/))
 * **Address**: `ägd.lol:25565`
-* **Seed**: 4806005722116301008
+* **Seed**: -2636792235093252059
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
