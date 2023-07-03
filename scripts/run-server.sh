@@ -15,7 +15,7 @@ cat allow.json.env allow.json.old | jq '.[]' | jq -s '' | \
 rm allow.json.env allow.json.old
 
 exec java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M \
-          -Xms$HEAP -Xmx$HEAP -jar /paper.jar \
+          -Xms$HEAP -Xmx$HEAP -jar /minecraft/paper.jar \
           --nojline \
           --universe ${UNIVERSE} \
           --plugins ${PLUGINS}

@@ -1,7 +1,6 @@
 ARG VERSION=1.20.1
 FROM docker.io/openjdk:17-bullseye AS builder
-RUN apt-get update && apt-get -y install git maven gradle jq && apt-get clean
-ARG VERSION
+RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
 # Build source plugins
 WORKDIR /build
@@ -14,7 +13,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
 
 # Set up run-time image
 FROM docker.io/openjdk:17-slim-bullseye
-RUN apt-get update && apt-get -y install curl jq unzip && apt-get clean
+RUN apt-get update && apt-get -y install curl jq unzip && rm -rf /var/lib/apt/lists/*
 ARG VERSION
 
 # Runtime config
@@ -29,7 +28,7 @@ WORKDIR /build
 COPY build-scripts .
 
 # Download latest Paper release
-WORKDIR /
+WORKDIR /minecraft
 RUN export PAPER_API=https://papermc.io/api/v2/projects/paper && \
     export BUILD=`curl -fLs ${PAPER_API}/versions/${VERSION} | jq -j '.builds[-1]'` && \
     curl -fLo paper.jar ${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/paper-${VERSION}-${BUILD}.jar
@@ -70,5 +69,7 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     ln -s /data/logs && \
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
     rm -rf /build
+
+RUN bash -c '/scripts/startup.sh & sleep 30 ; kill %1'
 
 CMD /scripts/startup.sh
