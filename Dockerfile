@@ -70,6 +70,7 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \
     rm -rf /build
 
-RUN bash -c '/scripts/startup.sh & sleep 30 ; kill %1'
+RUN bash -c '/scripts/startup.sh & sleep 30 ; kill %1' && \
+    rm -rf /data/*
 
 CMD /scripts/startup.sh
