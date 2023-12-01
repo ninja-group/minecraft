@@ -18,5 +18,10 @@
     "name": "Lasso",
     "jar": "Lasso-1.20-1.9.jar",
     "extradirs": ["Lasso"]
+  },
+  {
+    "name": "Dynmap",
+    "url": "https://github.com/webbukkit/dynmap/releases/download/v3.2.1/Dynmap-3.2.1-spigot.jar",
+    "extradirs": []
   }
 ]
