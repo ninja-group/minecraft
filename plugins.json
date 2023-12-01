@@ -1,5 +1,10 @@
 [
   {
+    "name": "Dynmap",
+    "jar": "Dynmap-3.7-beta-2-spigot.jar",
+    "extradirs": []
+  },
+  {
     "name": "SilkSpawners",
     "url": "https://storage.googleapis.com/silkspawners/SilkSpawners_v2.jar",
     "extradirs": []
@@ -10,18 +15,13 @@
     "extradirs": []
   },
   {
-    "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.1/blocklocker-1.12.1.jar",
-    "extradirs": []
-  },
-  {
     "name": "Lasso",
     "jar": "Lasso-1.20-1.9.jar",
     "extradirs": ["Lasso"]
   },
   {
-    "name": "Dynmap",
-    "url": "https://github.com/webbukkit/dynmap/releases/download/v3.2.1/Dynmap-3.2.1-spigot.jar",
+    "name": "BlockLocker",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.1/blocklocker-1.12.1.jar",
     "extradirs": []
   }
 ]

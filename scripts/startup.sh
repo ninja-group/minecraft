@@ -15,7 +15,7 @@ PLUGIN_EXTRADIRS="$(echo ${PLUGIN_JSON} | jq -r 'map(.extradirs)|flatten|.[]|sel
 PLUGIN_NAMES="bStats $(find ${PLUGINS} -name '*.jar' -exec basename \{\} .jar \;)"
 PLUGIN_CONFIGDIRS="${PLUGIN_NAMES} ${PLUGIN_EXTRADIRS}"
 
-# Setup persitent config and data directories
+# Setup persistent config and data directories
 for p in ${PLUGIN_CONFIGDIRS} ; do
   dir="/data/plugins/${p}"
   mkdir -p "${dir}"
