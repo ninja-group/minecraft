@@ -1,0 +1,59 @@
+# MineSpawners
+
+# You need to have permission node minespawners.use
+# If true, Prevent destroying spawner if no permission.
+Permission-Settings:
+  Prevent-Destroy: true
+  Break-Error-Message: "&8[&fSpawners&8] &cSpawner destroyed because you do not have permission!"
+  Perm-Error-Message: "&8[&fSpawners&8] &cYou do not have permission to do this!"
+
+# If true, your tool must have silk touch enchantment to mine
+Enchantment-Settings:
+  Require-Silk: true
+  Error-Message: "&8[&fSpawners&8] &cYou need silk touch to mine this!"
+
+
+# Color codes anywhere '&' or Hex &#000000
+# The name of the spawner given and mined. %type% = mob name
+Spawner-Settings:
+  Hide-Attributes: true
+  Uppercase-Name: true
+  Format-Name: "&8[&a%type%&8] &7Spawner"
+
+
+# If true, players can not rename the spawner
+Prevent-Anvil-Renaming:
+  Block-Event: true
+  Error-Message: "&8[&fSpawners&8] &cYou are not allowed to rename this!"
+
+
+# If true, the spawner will drop on the ground after mined.
+# If false, the spawner will go into your inventory.
+Drop-On-Ground:
+  While-Grounded: false
+  While-Flying: false
+  No-Slot-Message: "&8[&fSpawners&8] &cYou do not have inventory space, spawner dropped!"
+
+
+# If true, the spawner will drop on the ground if the user does not have space.
+# If false, the spawner will not be given.
+Command-Drop-On-Ground:
+  Console-Command-Drops: false
+  Game-Command-Drops: false
+  Notify-Player-Drops: false
+  Notify-Message: "&8[&fSpawners&8] &cNo inventory space, spawner dropped on ground!"
+
+
+# If true, spawners mined in the blocked world will be destroyed.
+# If false, players can not mine spawners in the listed worlds.
+Blacklist-Settings:
+  Allow-Breaking: false
+  Allow-Placing: false
+  Error-Message: "&8[&fSpawners&8] &cYou are not able to use spawners in this world!"
+  Blocked-Worlds: []
+
+
+# If the requirements in creative mode matters.
+Creative-Settings:
+  Use-Silk-Required: false
+  Use-Blocked-World: false

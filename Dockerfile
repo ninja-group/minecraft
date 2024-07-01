@@ -1,5 +1,5 @@
-ARG VERSION=1.20.1
-FROM docker.io/openjdk:17-bullseye AS builder
+ARG VERSION=1.21
+FROM docker.io/openjdk:21-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
 # Build source plugins
@@ -12,7 +12,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
     rm *.sh
 
 # Set up run-time image
-FROM docker.io/openjdk:17-slim-bullseye
+FROM docker.io/openjdk:21-slim-bullseye
 RUN apt-get update && apt-get -y install curl jq unzip && rm -rf /var/lib/apt/lists/*
 ARG VERSION
 
@@ -65,6 +65,7 @@ RUN export PERMISSION_FILES="permissions.yml ops.json whitelist.json banned-ips.
     useradd -rd `realpath .` minecraft && \
     chown -R minecraft:minecraft . && \
     chown minecraft:minecraft /datapacks && \
+    chown minecraft:minecraft /plugins && \
     echo "eula=true" > eula.txt && \
     ln -s /data/logs && \
     for f in ${PERMISSION_FILES} ; do ln -s /data/permissions/${f} ; done ; \

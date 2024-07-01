@@ -1,27 +1,27 @@
 [
   {
     "name": "Dynmap",
-    "jar": "Dynmap-3.7-beta-2-spigot.jar",
+    "jar": "Dynmap-3.7-beta-6-spigot.jar",
     "extradirs": []
   },
   {
-    "name": "SilkSpawners",
-    "url": "https://storage.googleapis.com/silkspawners/SilkSpawners_v2.jar",
+    "name": "MineSpawners",
+    "jar": "MineSpawners.jar",
     "extradirs": []
   },
   {
     "name": "EssentialsX",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.20.0/EssentialsX-2.20.0.jar",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.20.1/EssentialsX-2.20.1.jar",
     "extradirs": []
   },
   {
     "name": "Lasso",
-    "jar": "Lasso-1.20-1.9.jar",
+    "jar": "Lasso-1.20.4-1.11.jar",
     "extradirs": ["Lasso"]
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.1/blocklocker-1.12.1.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.2/BlockLocker.jar",
     "extradirs": []
   }
 ]
