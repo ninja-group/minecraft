@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 name="$(echo $1 | jq -j '.name')"
 repo="$(echo $1 | jq -j '.repo')"
 tag="$(echo $1 | jq -j '.tag')"
