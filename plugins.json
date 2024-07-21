@@ -15,11 +15,6 @@
     "extradirs": []
   },
   {
-    "name": "Lasso",
-    "jar": "Lasso-1.20.4-1.11.jar",
-    "extradirs": ["Lasso"]
-  },
-  {
     "name": "BlockLocker",
     "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.2/BlockLocker.jar",
     "extradirs": []

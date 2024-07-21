@@ -29,6 +29,7 @@ Some particularly useful ones:
     night-time activities).
 * **custom nether portals**: create nether portals in any shape you like.
 * **xp bottling**: store experience for later use.
+* **[leash villager](https://www.curseforge.com/minecraft/texture-packs/leash-villager)**: put villagers on a leash.
 
 See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
 more information about each datapack.
