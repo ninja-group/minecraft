@@ -4,9 +4,9 @@ Docker setup + config for ninjas who craft in groups.
 Also useful as a starting point for deploying your own server.
 
 ## Configuration
-* **Server**: 1.20.1 ([Paper](https://papermc.io/))
-* **Address**: `ägd.lol:25565`
-* **Seed**: -2636792235093252059
+* **Server**: 1.21.0 ([Paper](https://papermc.io/))
+* **Address**: `mc.koditoriet.se`
+* **Seed**: -2135836821937050197
 * **Gamemode**: survival
 * **Difficulty**: hard
 * **PvP**: off
@@ -28,8 +28,7 @@ Some particularly useful ones:
   (please be considerate of other players who may be engaged in
     night-time activities).
 * **custom nether portals**: create nether portals in any shape you like.
-* **more bricks crafting**: bricks are no longer a rare earth metal
-  (craft four brick blocks from every four bricks instead of one).
+* **xp bottling**: store experience for later use.
 
 See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
 more information about each datapack.
@@ -121,6 +120,6 @@ needs any other build tools, you'll need to add those to the dockerfile.
 * Exposed ports
   * `25565`: the default Minecraft port.
 * Build-time arguments
-  * `VERSION`: Minecraft version to build image for. Defaults to 1.20.1.
+  * `VERSION`: Minecraft version to build image for. Defaults to 1.21.
 
     The latest Paper build for the given version will be used for the image.
