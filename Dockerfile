@@ -1,4 +1,4 @@
-ARG VERSION=1.21.1
+ARG VERSION=1.21.4
 FROM docker.io/openjdk:21-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
@@ -29,9 +29,11 @@ COPY build-scripts .
 
 # Download latest Paper release
 WORKDIR /minecraft
-RUN export PAPER_API=https://papermc.io/api/v2/projects/paper && \
-    export BUILD=`curl -fLs ${PAPER_API}/versions/${VERSION} | jq -j '.builds[-1]'` && \
-    curl -fLo paper.jar ${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/paper-${VERSION}-${BUILD}.jar
+RUN PAPER_API=https://papermc.io/api/v2/projects/paper && \
+    BUILD=$(curl -s ${PAPER_API}/versions/${VERSION}/builds | jq -r '.builds | map(select(.channel == "default") | .build) | .[-1]') \
+    JAR_NAME=paper-${VERSION}-${BUILD}.jar \
+    PAPERMC_URL="${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/${JAR_NAME}" \
+    curl -o paper.jar "${PAPERMC_URL}"
 
 # Install plugins
 WORKDIR /plugins

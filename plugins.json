@@ -1,7 +1,7 @@
 [
   {
     "name": "Dynmap",
-    "jar": "Dynmap-3.7-beta-7-spigot.jar",
+    "jar": "Dynmap-3.7-beta-8-spigot.jar",
     "extradirs": []
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.12.2/BlockLocker.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.13/BlockLocker.jar",
     "extradirs": []
   }
 ]
