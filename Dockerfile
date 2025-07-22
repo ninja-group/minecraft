@@ -1,4 +1,4 @@
-ARG VERSION=1.21.4
+ARG VERSION=1.21.8
 FROM docker.io/openjdk:21-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
@@ -13,7 +13,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
 
 # Set up run-time image
 FROM docker.io/openjdk:21-slim-bullseye
-RUN apt-get update && apt-get -y install curl jq unzip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y install curl jq unzip gettext-base && rm -rf /var/lib/apt/lists/*
 ARG VERSION
 
 # Runtime config
@@ -29,10 +29,10 @@ COPY build-scripts .
 
 # Download latest Paper release
 WORKDIR /minecraft
-RUN PAPER_API=https://papermc.io/api/v2/projects/paper && \
-    BUILD=$(curl -s ${PAPER_API}/versions/${VERSION}/builds | jq -r '.builds | map(select(.channel == "default") | .build) | .[-1]') \
-    JAR_NAME=paper-${VERSION}-${BUILD}.jar \
-    PAPERMC_URL="${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/${JAR_NAME}" \
+RUN PAPER_API=https://api.papermc.io/v2/projects/paper && \
+    BUILD=$(curl -s ${PAPER_API}/versions/${VERSION}/builds | jq -r '.builds | map(select(.channel == "default") | .build) | .[-1]') && \
+    JAR_NAME=paper-${VERSION}-${BUILD}.jar && \
+    PAPERMC_URL="${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/${JAR_NAME}" && \
     curl -o paper.jar "${PAPERMC_URL}"
 
 # Install plugins

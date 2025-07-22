@@ -1,7 +1,7 @@
 [
   {
     "name": "Dynmap",
-    "jar": "Dynmap-3.7-beta-8-spigot.jar",
+    "jar": "Dynmap-3.7-beta-10-spigot.jar",
     "extradirs": []
   },
   {
@@ -11,7 +11,17 @@
   },
   {
     "name": "EssentialsX",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.20.1/EssentialsX-2.20.1.jar",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.21.1/EssentialsX-2.21.1.jar",
+    "extradirs": []
+  },
+  {
+    "name": "EssentialsXDiscord",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.21.1/EssentialsXDiscord-2.21.1.jar",
+    "extradirs": []
+  },
+  {
+    "name": "EssentialsXDiscordLink",
+    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.21.1/EssentialsXDiscordLink-2.21.1.jar",
     "extradirs": []
   },
   {
