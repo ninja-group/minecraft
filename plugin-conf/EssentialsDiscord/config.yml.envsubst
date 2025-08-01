@@ -105,7 +105,7 @@ console:
   # - info
   # - debug
   # - trace
-  log-level: info
+  log-level: warn
   # Blocks any console message from sending to Discord if it matches this regex pattern.
   # This is useful if you want to ignore certain messages from the console.
   # Can also be a list of regex patterns in addition to a single regex pattern.
@@ -120,7 +120,7 @@ console:
 # To disable a message from showing, use 'none' as the channel name.
 message-types:
   # Join messages sent when a player joins the Minecraft server.
-  join: primary
+  join: none
   # Join messages sent when a player joins the Minecraft server for the first time. This type is sent instead of the join type.
   first-join: primary
   # Leave messages sent when a player leaves the Minecraft server.
@@ -130,9 +130,9 @@ message-types:
   # Death messages sent when a player dies on the Minecraft server.
   death: primary
   # AFK status change messages sent when a player's AFK status changes.
-  afk: primary
+  afk: none
   # Achievement/advancement messages sent when a player is awarded an achievement/advancement.
-  advancement: primary
+  advancement: none
   # Action messages sent when a player runs the /me or /action commands.
   action: primary
   # Message sent when the server starts up.
