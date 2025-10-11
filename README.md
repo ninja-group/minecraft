@@ -4,7 +4,7 @@ Docker setup + config for ninjas who craft in groups.
 Also useful as a starting point for deploying your own server.
 
 ## Configuration
-* **Server**: 1.21.4 ([Paper](https://papermc.io/))
+* **Server**: 1.21.10 ([Paper](https://papermc.io/))
 * **Address**: `mc.koditoriet.se`
 * **Seed**: -2135836821937050197
 * **Gamemode**: survival
@@ -29,6 +29,7 @@ Some particularly useful ones:
     night-time activities).
 * **custom nether portals**: create nether portals in any shape you like.
 * **xp bottling**: store experience for later use.
+* **cauldron mud**: produce mud by tossing dirt into a water cauldron.
 * **[leash villager](https://www.curseforge.com/minecraft/texture-packs/leash-villager)**: put villagers on a leash.
 
 See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for

@@ -1,4 +1,4 @@
-ARG VERSION=1.21.8
+ARG VERSION=1.21.10
 FROM docker.io/openjdk:21-bullseye AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
