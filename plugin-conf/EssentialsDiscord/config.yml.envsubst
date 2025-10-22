@@ -124,7 +124,7 @@ message-types:
   # Join messages sent when a player joins the Minecraft server for the first time. This type is sent instead of the join type.
   first-join: primary
   # Leave messages sent when a player leaves the Minecraft server.
-  leave: primary
+  leave: none
   # Chat messages sent when a player chats on the Minecraft server.
   chat: primary
   # Death messages sent when a player dies on the Minecraft server.
