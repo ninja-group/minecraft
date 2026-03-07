@@ -1,10 +1,5 @@
 [
   {
-    "name": "Dynmap",
-    "jar": "Dynmap-3.7-beta-10-spigot.jar",
-    "extradirs": []
-  },
-  {
     "name": "MineSpawners",
     "jar": "MineSpawners.jar",
     "extradirs": []
@@ -15,18 +10,13 @@
     "extradirs": []
   },
   {
-    "name": "EssentialsXDiscord",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsXDiscord-2.21.2.jar",
-    "extradirs": []
-  },
-  {
-    "name": "EssentialsXDiscordLink",
-    "url": "https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsXDiscordLink-2.21.2.jar",
+    "name": "BlueMap",
+    "url": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.16/bluemap-5.16-spigot.jar",
     "extradirs": []
   },
   {
     "name": "BlockLocker",
-    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.13/BlockLocker.jar",
+    "url": "https://github.com/rutgerkok/BlockLocker/releases/download/v1.14.1/blocklocker-1.14.1.jar",
     "extradirs": []
   }
 ]

@@ -4,7 +4,7 @@ Docker setup + config for ninjas who craft in groups.
 Also useful as a starting point for deploying your own server.
 
 ## Configuration
-* **Server**: 1.21.10 ([Paper](https://papermc.io/))
+* **Server**: 1.21.11 ([Paper](https://papermc.io/))
 * **Address**: `mc.koditoriet.se`
 * **Seed**: -2135836821937050197
 * **Gamemode**: survival
@@ -16,7 +16,6 @@ Also useful as a starting point for deploying your own server.
 * [EssentialsX](https://essentialsx.net/)
 * [SilkSpawners](https://dev.bukkit.org/projects/silkspawners)
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
-* [Lasso](https://www.spigotmc.org/resources/lasso.54815/)
 
 ## Datapacks
 See [`datapacks`](datapacks) for all enabled datapacks.
@@ -30,7 +29,6 @@ Some particularly useful ones:
 * **custom nether portals**: create nether portals in any shape you like.
 * **xp bottling**: store experience for later use.
 * **cauldron mud**: produce mud by tossing dirt into a water cauldron.
-* **[leash villager](https://www.curseforge.com/minecraft/texture-packs/leash-villager)**: put villagers on a leash.
 
 See [vanillatweaks.net](https://vanillatweaks.net/picker/datapacks/) for
 more information about each datapack.
