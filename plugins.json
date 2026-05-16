@@ -1,7 +1,7 @@
 [
   {
-    "name": "MineSpawners",
-    "jar": "MineSpawners.jar",
+    "name": "SpawnerSilk",
+    "jar": "spawner-silk-5.9.2.jar",
     "extradirs": []
   },
   {
@@ -11,7 +11,7 @@
   },
   {
     "name": "BlueMap",
-    "url": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.16/bluemap-5.16-spigot.jar",
+    "url": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.20/bluemap-5.20-spigot.jar",
     "extradirs": []
   },
   {

@@ -1,5 +1,7 @@
-ARG VERSION=1.21.11
-FROM docker.io/openjdk:21-bullseye AS builder
+ARG VERSION=26.1.2
+ARG JAVA_VERSION=26
+
+FROM docker.io/eclipse-temurin:${JAVA_VERSION}-jammy AS builder
 RUN apt-get update && apt-get -y install git maven gradle jq && rm -rf /var/lib/apt/lists/*
 
 # Build source plugins
@@ -12,7 +14,7 @@ RUN jq -c '.[]' source-plugins.json | while read json ; do \
     rm *.sh
 
 # Set up run-time image
-FROM docker.io/openjdk:21-slim-bullseye
+FROM docker.io/eclipse-temurin:${JAVA_VERSION}-jammy
 RUN apt-get update && apt-get -y install curl jq unzip gettext-base && rm -rf /var/lib/apt/lists/*
 ARG VERSION
 
@@ -29,11 +31,9 @@ COPY build-scripts .
 
 # Download latest Paper release
 WORKDIR /minecraft
-RUN PAPER_API=https://api.papermc.io/v2/projects/paper && \
-    BUILD=$(curl -s ${PAPER_API}/versions/${VERSION}/builds | jq -r '.builds | map(select(.channel == "default") | .build) | .[-1]') && \
-    JAR_NAME=paper-${VERSION}-${BUILD}.jar && \
-    PAPERMC_URL="${PAPER_API}/versions/${VERSION}/builds/${BUILD}/downloads/${JAR_NAME}" && \
-    curl -o paper.jar "${PAPERMC_URL}"
+RUN PAPER_API=https://fill.papermc.io/v3/projects/paper && \
+    URL=$(curl -s ${PAPER_API}/versions/${VERSION}/builds/latest | jq -r '.downloads["server:default"].url') && \
+    curl -o paper.jar "${URL}"
 
 # Install plugins
 WORKDIR /plugins

@@ -4,7 +4,7 @@ Docker setup + config for ninjas who craft in groups.
 Also useful as a starting point for deploying your own server.
 
 ## Configuration
-* **Server**: 1.21.11 ([Paper](https://papermc.io/))
+* **Server**: 26.1.2 ([Paper](https://papermc.io/))
 * **Address**: `mc.koditoriet.se`
 * **Seed**: -2135836821937050197
 * **Gamemode**: survival
@@ -14,8 +14,9 @@ Also useful as a starting point for deploying your own server.
 ## Mods
 * [mcMMO](https://mcmmo.org/)
 * [EssentialsX](https://essentialsx.net/)
-* [SilkSpawners](https://dev.bukkit.org/projects/silkspawners)
+* [SpawnerSilk](https://dev.bukkit.org/projects/spawnersilk)
 * [BlockLocker](https://www.spigotmc.org/resources/blocklocker.3268/)
+* [BlueMap](https://github.com/BlueMap-Minecraft/BlueMap)
 
 ## Datapacks
 See [`datapacks`](datapacks) for all enabled datapacks.
